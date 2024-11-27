@@ -27,7 +27,11 @@
         };
 
         function fetchCarparkData() {
-            const apiUrl = 'http://127.0.0.1:5000/car/lots'; 
+            // LOCAL BACKEND
+            // const apiUrl = 'http://10.36.1.105:80/car/lots'; 
+
+            // HOSTED BACKEND
+            const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/lots'; 
 
             fetch(apiUrl)
                 .then(response => response.json())

@@ -28,7 +28,11 @@
         function retrieveCar() {
             var id = prompt("Enter the Car ID to retrieve from carpark (a.k.a. delete):");
 
-            const apiUrl = 'http://127.0.0.1:5000/car/delete/' + id; 
+            // LOCAL BACKEND
+            // const apiUrl = 'http://10.36.1.105:80/car/delete/' + id; 
+
+            // HOSTED BACKEND
+            const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/delete/' + id; 
 
             fetch(apiUrl, {method: 'DELETE'})
                 .then(response => response.json())

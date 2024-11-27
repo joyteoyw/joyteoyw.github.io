@@ -30,7 +30,11 @@
             var urlParams = new URLSearchParams(window.location.search);
             var carId = urlParams.get('id');
 
-            const apiUrl = 'http://127.0.0.1:5000/car/' + carId; 
+            // LOCAL BACKEND
+            // const apiUrl = 'http://10.36.1.105:80/car/' + carId; 
+
+            // HOSTED BACKEND
+            const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/' + carId; 
 
             fetch(apiUrl)
                 .then(response => response.json())
