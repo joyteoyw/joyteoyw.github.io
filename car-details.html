@@ -31,10 +31,10 @@
             var carId = urlParams.get('id');
 
             // LOCAL BACKEND
-            // const apiUrl = 'http://10.36.1.105:80/car/' + carId; 
+            const apiUrl = 'http://10.36.1.105:80/car/' + carId; 
 
             // HOSTED BACKEND
-            const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/' + carId; 
+            // const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/' + carId; 
 
             fetch(apiUrl)
                 .then(response => response.json())

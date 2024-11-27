@@ -46,11 +46,11 @@
                 lot: parseInt(document.getElementById('car-lot').value)
             };
 
-            // LOCAL BACKEND
-            // fetch('http://10.36.1.105:80/car/add', {
-
             // HOSTED BACKEND
-            fetch('http://carparkapi-production.up.railway.app:8080/car/add', {
+            // fetch('http://carparkapi-production.up.railway.app:8080/car/add', {
+
+            // LOCAL BACKEND
+            fetch('http://10.36.1.105:80/car/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

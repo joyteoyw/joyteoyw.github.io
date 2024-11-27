@@ -28,10 +28,10 @@
 
         function fetchCarparkData() {
             // LOCAL BACKEND
-            // const apiUrl = 'http://10.36.1.105:80/car/lots'; 
+            const apiUrl = 'http://10.36.1.105:80/car/lots'; 
 
             // HOSTED BACKEND
-            const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/lots'; 
+            // const apiUrl = 'http://carparkapi-production.up.railway.app:8080/car/lots'; 
 
             fetch(apiUrl)
                 .then(response => response.json())
