@@ -15,18 +15,8 @@
         
         <div class="card shadow-sm">
             <div class="card-body">
-                <table class="table table-striped" id="carTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Model</th>
-                            <th>Colour</th>
-                            <th>Lot</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <ul id="carList" class="list-group list-group-flush">
+                </ul>
             </div>
         </div>
     </div>
@@ -38,28 +28,29 @@
 
         function fetchCarparkData() {
             // LOCAL BACKEND
-            // const apiUrl = 'http://0.0.0.0:8000/cars'; 
+            // const apiUrl = 'http://0.0.0.0:8000/car/lots'; 
 
             // HOSTED BACKEND
-            const apiUrl = 'https://carpark-api-ccdgfyeed2g2ayb2.eastasia-01.azurewebsites.net/cars'; 
+            const apiUrl = 'https://carpark-api-ccdgfyeed2g2ayb2.eastasia-01.azurewebsites.net/car/lots'; 
 
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    if (data.response === "success") {
-                        const carTableBody = document.getElementById('carTable').getElementsByTagName('tbody')[0];
-                        data.data.forEach(car => {
-                            const row = carTableBody.insertRow();
-                            row.innerHTML = `
-                            <td>${car.id}</td>
-                            <td>${car.model}</td>
-                            <td>${car.colour}</td>
-                            <td>${car.lot}</td>
-                            `;
-                        });
+                    const carList = data.data; 
+                    const carListContainer = document.getElementById('carList');
+
+                    carListContainer.innerHTML = '';
+
+                    if (carList && Object.keys(carList).length > 0) {
+                        for (const lot in carList) {
+                            const car = carList[lot];
+                            const listItem = document.createElement('li');
+                            listItem.classList.add('list-group-item');
+                            listItem.textContent = `Lot ${lot}: ${car}`;
+                            carListContainer.appendChild(listItem);
+                        }
                     } else {
-                    console.error(data.error);
-                    alert(data.error);
+                        carListContainer.innerHTML = '<li class="list-group-item">No cars parked.</li>';
                     }
                 })
                 .catch(error =>{
