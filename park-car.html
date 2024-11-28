@@ -46,11 +46,11 @@
                 lot: parseInt(document.getElementById('car-lot').value)
             };
 
-            // HOSTED BACKEND
-            // fetch('http://carparkapi-production.up.railway.app:8080/car/add', {
-
             // LOCAL BACKEND
-            fetch('http://10.36.1.105:80/car/add', {
+            // fetch('http://0.0.0.0:8000/car/add', {
+
+            // HOSTED BACKEND
+            fetch('https://carpark-api-ccdgfyeed2g2ayb2.eastasia-01.azurewebsites.net/car/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
